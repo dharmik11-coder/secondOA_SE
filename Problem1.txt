@@ -1,0 +1,27 @@
+Approach for problem1:
+
+Increment by an exponential order and using binary search
+In this approach, i will increase the interval size by an exponential order of 2.
+
+Pseudo-Code:
+
+int search_infiniteArray( int A[], int K ) 
+{ 
+    int l = 0 
+    int r = 1
+    while (A[r] < K)
+    { 
+       l = r       
+       r = 2*r    
+    }
+   return binarySearch(A, l, r, K)
+}
+
+
+Complexity Analysis:
+
+Let i be the position of the element to be searched, then the number of iterations for finding upper index 'r' is equal to O(log i) in the worst case. Similarly, The total number of elements between l and r = O(i)
+
+Time complexity = finding upper index 'r' of the interval + Binary Search from l to r = O(log i) + O(log i ) = O(log i)
+
+Space Complexity: O(1) if we use iterative binary search.
